@@ -1,6 +1,6 @@
-# Authentication System with Relic & MongoDB
+# Authentication System with [Relic](https://github.com/serverpod/relic) & MongoDB
 
-A complete, production-ready authentication and authorization system built with Relic (modern Dart web framework) and MongoDB.
+A complete, production-ready authentication and authorization system built with [Relic](https://github.com/serverpod/relic) (modern Dart web framework) and MongoDB.
 
 ## 🎯 Features
 
@@ -377,4 +377,4 @@ For issues or questions, please open an issue on GitHub.
 
 ---
 
-Built with ❤️ using Relic and MongoDB
+Built with ❤️ using [Relic](https://github.com/serverpod/relic) and MongoDB
