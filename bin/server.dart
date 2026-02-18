@@ -5,7 +5,6 @@ import 'package:auth_system/config/database.dart';
 import 'package:auth_system/controllers/auth_controller.dart';
 import 'package:auth_system/controllers/resource_controller.dart';
 import 'package:auth_system/middleware/auth_middleware.dart';
-import 'package:auth_system/middleware/logger_middleware.dart';
 import 'package:relic/relic.dart';
 
 void main() async {
@@ -23,7 +22,7 @@ void main() async {
     app.use('/', corsMiddleware());
 
     // Apply request logging
-    app.use('/', customLogger());
+    app.use('/', logRequests());
 
     // ============================================
     // PUBLIC ROUTES (No authentication required)
