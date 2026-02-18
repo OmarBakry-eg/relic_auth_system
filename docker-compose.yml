@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: auth_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: auth_db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - auth_network
+
+  auth_api:
+    build: .
+    container_name: auth_api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/auth_db
+      JWT_SECRET: your-production-secret-change-me
+      JWT_REFRESH_SECRET: your-production-refresh-secret-change-me
+      PORT: 8080
+    depends_on:
+      - mongodb
+    networks:
+      - auth_network
+
+volumes:
+  mongodb_data:
+
+networks:
+  auth_network:
+    driver: bridge
